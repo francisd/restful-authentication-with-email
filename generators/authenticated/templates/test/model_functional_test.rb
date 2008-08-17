@@ -20,8 +20,8 @@ class <%= model_controller_class_name %>ControllerTest < ActionController::TestC
 
   def test_should_require_login_on_signup
     assert_no_difference '<%= class_name %>.count' do
-      create_<%= file_name %>(:login => nil)
-      assert assigns(:<%= file_name %>).errors.on(:login)
+      create_<%= file_name %>(:email => nil)
+      assert assigns(:<%= file_name %>).errors.on(:email)
       assert_response :success
     end
   end
@@ -87,7 +87,7 @@ class <%= model_controller_class_name %>ControllerTest < ActionController::TestC
 
   protected
     def create_<%= file_name %>(options = {})
-      post :create, :<%= file_name %> => { :login => 'quire', :email => 'quire@example.com',
+      post :create, :<%= file_name %> => { :email => 'quire@example.com',
         :password => 'quire69', :password_confirmation => 'quire69' }.merge(options)
     end
 end
