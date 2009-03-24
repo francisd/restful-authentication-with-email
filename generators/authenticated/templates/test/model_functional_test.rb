@@ -68,7 +68,7 @@ class <%= model_controller_class_name %>ControllerTest < ActionController::TestC
     get :activate, :activation_code => <%= table_name %>(:aaron).activation_code
     assert_redirected_to '/<%= controller_routing_path %>/new'
     assert_not_nil flash[:notice]
-    assert_equal <%= table_name %>(:aaron), <%= class_name %>.authenticate('aaron', 'monkey')
+    assert_equal <%= table_name %>(:aaron), <%= class_name %>.authenticate('aaron@example.com', 'monkey')
   end
   
   def test_should_not_activate_user_without_key
