@@ -56,7 +56,7 @@ class <%= class_name %>Test < ActiveSupport::TestCase
 
   def test_should_reset_password
     <%= table_name %>(:quentin).update_attributes(:password => 'new password', :password_confirmation => 'new password')
-    assert_equal <%= table_name %>(:quentin), <%= class_name %>.authenticate('quentin', 'new password')
+    assert_equal <%= table_name %>(:quentin), <%= class_name %>.authenticate('quentin@example.com', 'new password')
   end
 
   def test_should_not_rehash_password
